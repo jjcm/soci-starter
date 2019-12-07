@@ -1,3 +1,6 @@
+// This is a custom server I wrote that just dynamically compiles pug (html preprocessor) and stylus (css preprocessor) files.
+// Note that there's no compile for the javascript files - those are unchanged. 
+// I just prefer using this because it's faster for me to write pug and stylus for prototyping.
 const PORT = 8080
 
 var http = require('http')

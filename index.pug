@@ -1,9 +1,17 @@
 title Webcomponent Example Project
+
+// We import the component list as a module, that way we can do `import` tags and the like. Many systems allow you to compile to a non-module
+// consumable file, as type="module" is a newer browser spec that some old browsers don't support.
 script(src="components/example-components.js" type="module")
+
+// I use css variables quite heavily, which is why I usually have a tokens file. They're also critical to making a robust webcomponent system, as 
+// typically global css can't penetrate a webcomponents shadowroot. With tokens though you can.
 link(rel="stylesheet" href="tokens.styl")
 link(rel="stylesheet" href="style.styl")
 
 h1 Component examples
 
+// I'm using html notation here instead of pug notation just for clarity around how components are defined.
+// The first one is just a base tag, the next one overrides its default title with a title attribute.
 <example-component></example-component>
 <example-component title="This uses a title set via attribute"></example-component>
