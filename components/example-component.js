@@ -11,7 +11,8 @@ export default class ExampleComponent extends SociComponent {
   css(){
     return `
       :host {
-        background: #f00;
+        background: grey;
+        display: block;
       }
 
       h2 {
@@ -29,12 +30,12 @@ export default class ExampleComponent extends SociComponent {
   // and you'd call this every time the state of the object changed, webcomponents use an attribute callback system, which is what observedAttributes and attributeChangedCallback() are
   html(){ return `
     <h2>Hello, world</h2>
-    <button @click=_onClick></button>
+    <button @click=_onClick>Click me</button>
   `}
 
   // This is a native javascript function, not one I've written. Any attribute listed here will trigger attributeChangedCallback when they're modified.
   static get observedAttributes() {
-    return ['score', 'user', 'replies', 'date']
+    return ['title']
   }
 
   // Also a native javascript function. We use a switch statement to decide what to do based on the name of the attribute that changed.
