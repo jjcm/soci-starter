@@ -107,7 +107,7 @@ var handler = {
     if(mimetype == 'video/mp4' && req.headers.range){
       var file = req.url
       var range = req.headers.range
-      var positions = range.replace(/bytes=/, "").split("-")
+      var positions = range.replace(/bytes=/, '').split('-')
       var start = parseInt(positions[0], 10)
 
       fs.stat(file, function(err, stats) {
@@ -116,16 +116,16 @@ var handler = {
         var chunksize = (end - start) + 1
 
         res.writeHead(206, {
-          "Content-Range": "bytes " + start + "-" + end + "/" + total,
-          "Accept-Ranges": "bytes",
-          "Content-Length": chunksize,
-          "Content-Type": "video/mp4"
-        });
+          'Content-Range': 'bytes ' + start + '-' + end + '/' + total,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': 'video/mp4'
+        })
 
         var stream = fs.createReadStream(file, { start: start, end: end })
-          .on("open", function() {
+          .on('open', function() {
             stream.pipe(res)
-          }).on("error", function(err) {
+          }).on('error', function(err) {
             res.end(err)
           })
       })
@@ -133,8 +133,8 @@ var handler = {
     else {
       fs.readFile('.' + req.url, function(err, data){
         if(err){
-          res.writeHead(404,{"Content-type":"text/plain"})
-          res.end("Sorry the page was not found")
+          res.writeHead(404,{'Content-type':'text/plain'})
+          res.end('Sorry the page was not found')
         }
         else {
           if(mimetype)

@@ -26,7 +26,7 @@ export default class SociComponent extends HTMLElement {
           el.removeAttribute(attr.name)
         }
         if(prefix == '?'){
-          el[attr.value != "false" ? 'setAttribute' : 'removeAttribute'](attr.name.slice(1), '')
+          el[attr.value != 'false' ? 'setAttribute' : 'removeAttribute'](attr.name.slice(1), '')
           el.removeAttribute(attr.name)
         }
       })

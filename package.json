@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jjcm/soci-starter#readme",
   "dependencies": {
+    "eslint": "^6.7.2",
     "mime-types": "^2.1.24",
     "pug": "^2.0.4",
     "stylus": "^0.54.7"
